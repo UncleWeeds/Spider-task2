@@ -1,0 +1,64 @@
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #85ffbd;
+    background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+}
+
+.card {
+    width: 480px;
+    padding: 40px;
+
+    background: #ffffff33 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 30px #0000001a !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+    border: 1px solid #ffffff4d !important;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.card>h1{
+    align-self: center;
+}
+
+.Login-Field {
+    border: none;
+    background: rgba(0, 0, 0, .25);
+    /* color: #fdfdfd; */
+    margin-top: 1rem;
+    padding: 1rem;
+    padding-right: 0rem;
+    font-size: 1.2rem;
+    border-radius: 7px;
+    width: 100%;
+    transition: all .1s linear;
+}
+
+.Login-Field:focus {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, .5);
+    outline: none;
+}
+
+.Login-Error {
+    color: #ff8080;
+}
+
+.Login-Btn {
+    background: #00cc99;
+    color: #fdfdfd;
+    padding: .5rem 2rem;
+    border: none;
+    border-radius: 5px;
+    margin-top: 2rem;
+}
+
+.Login-Btn:hover {
+    cursor: pointer;
+}

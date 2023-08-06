@@ -34,15 +34,19 @@ CD Setup:
 Every day at 12:00 AM, the code from the dev branch is automatically merged into the master branch.
 This ensures that the master branch always has the latest stable version of the application.
 Getting Started
+
 Clone the repository:
 
-git clone <repository-url>
+``` git clone <repository-url> ```
+
 Navigate to the project directory:
 
-cd Spider2
+``` cd Spider2 ```
+
 Run using Docker Compose:
 
-docker-compose up -d
+``` docker-compose up -d ```
+
 Access the application:
 
 Open a web browser and navigate to frontend.localhost to access the frontend.

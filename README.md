@@ -1,36 +1,52 @@
-<h1>Spider Devops Inductions - Task 2 </h1>
+# DevOps Task-2: Dockerization and CI/CD Setup
 
-<h2><b>Instructions:</b></h2>
-1. Fork the given repo and set the your repo to <b>private</b>.<br />
-2. Setup the servers using the instructions given below<br />
-3. Dockerize the given application using <b>Docker</b> and <b>Docker-compose</b><br />
-<br/>
-<hr/>
-<h2><b>Tech Stack:</b></h2>
-Language: <i>Rust</i><br />
-Framework: <i>Actix-Web</i><br />
-ORM: <i>Diesel</i><br />
-Database: <i>PosgreSQL</i><br />
-Frontend: <i>React</i><br />
-Compilers: <i>Rust v1.7.0 and node v18.0.0</i><br />
-<br/>
-<hr/>
+This repository contains a login application. The goal was to dockerize the application and set up a CI/CD pipeline using GitHub Actions.
 
-<b>How to Setup Server[Linux installation]:</b><br />
-- ```cd Backend```<br />
-- ```sudo apt install libpq-dev```
-- ```cargo install diesel_cli --no-default-features --features postgres```
-- CREATE DATABASE rust_server [in psql CLI];
-- Add ENV variables for DB connection<br />
-- ```diesel setup``` [Generates the tables]<br />
-- ```cargo run``` [server runs]
+# Level 1: Dockerization
 
-<i>Any problems with setting up server refer to official cargo and diesel documents</i>
+Frontend and Backend:
+Source code for both frontend and backend is available in their respective directories.
+Dockerfiles are present in each directory to containerize the applications.
+Docker-compose is used to orchestrate the containers ensuring the frontend container can communicate with the backend containers.
+# Level 2: Load Balancing and Reverse Proxy
 
-<br/>
-<hr/>
+Multiple Backend Instances:
 
-<b>How to Setup Frontend React Server:</b><br />
-- ```cd Frontend```<br />
-- ```npm i``` [install dependencies]<br />
-- ```npm start``` [start react server]<br />
+Two backend containers run simultaneously on different ports.
+NGINX is used as a reverse proxy and load balancer to distribute requests in a 60:40 ratio between the two backend servers.
+Access Points:
+
+frontend.localhost maps to the frontend container.
+backend1.localhost maps to the first backend server.
+backend2.localhost maps to the second backend server.
+Compression:
+
+The frontend is compressed using NGINX for optimized performance.
+
+# Level 3: CI/CD Pipeline with GitHub Actions
+
+CI Setup:
+
+On every push to the dev branch, the application is built, and Docker images are pushed to Docker Hub.
+GitHub Actions are utilized for this Continuous Integration process.
+CD Setup:
+
+Every day at 12:00 AM, the code from the dev branch is automatically merged into the master branch.
+This ensures that the master branch always has the latest stable version of the application.
+Getting Started
+Clone the repository:
+
+git clone <repository-url>
+Navigate to the project directory:
+
+cd Spider2
+Run using Docker Compose:
+
+docker-compose up -d
+Access the application:
+
+Open a web browser and navigate to frontend.localhost to access the frontend.
+Use backend1.localhost and backend2.localhost to access the two backend servers.
+Remember, to view the CI/CD pipeline in action, you can navigate to the "Actions" tab on the GitHub repository.
+
+Note: Ensure you have Docker and Docker Compose installed on your machine to run the application locally.

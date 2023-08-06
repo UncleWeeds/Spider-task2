@@ -2,12 +2,16 @@
 
 This repository contains a login application. The goal was to dockerize the application and set up a CI/CD pipeline using GitHub Actions.
 
+<hr/>
+
 <b> Level 1: Dockerization </b>
 
 Frontend and Backend:
 Source code for both frontend and backend is available in their respective directories.
 Dockerfiles are present in each directory to containerize the applications.
 Docker-compose is used to orchestrate the containers ensuring the frontend container can communicate with the backend containers.
+
+<hr/>
 
 <b> Level 2: Load Balancing and Reverse Proxy </b>
 
@@ -23,6 +27,8 @@ backend2.localhost maps to the second backend server.
 Compression:
 
 The frontend is compressed using NGINX for optimized performance.
+
+<hr/>
 
 <b> Level 3: CI/CD Pipeline with GitHub Actions </b>
 
